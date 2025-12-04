@@ -23,13 +23,14 @@ local madface = {"rbxassetid://139764592746657", "rbxassetid://72780188103664"}
 local texttable1 = {"To reset your character,\nopen the escape menu", "You can leave the game by pressing,","Use the sword tool to attack your enemy!", "Have you tried using SHIFT LOCK to beat this parkour?", "Use the bomb to break the crates infront of you!"}
 local texttable2 = {"click reset, and press confirm!","escape, leave, and pressing leave again!","","","","","","","","","",""}
 local sounds1 = {"rbxassetid://105929369145001", "rbxassetid://88004079957410", "rbxassetid://139427080648900", "rbxassetid://112021741630260", "rbxassetid://134046646084692"}
+-- below are the timings that were set for each dialogue, by seconds
 --d1 = 3.5, 2.5
 --d2 = 2, 3
 --d3 = 2.5
 --d4 = 3.1
 --d5 = 3.1
 
-local function talkingtime(text, sound, Apause, Bpause)
+local function talkingtime(text, sound, Apause, Bpause) -- handles the dialogue sound, text, and swapping between the two dialogues
 	wholebox.Enabled = true
 	showingtween:Play()
 	showingtween.Completed:Wait()
@@ -50,7 +51,7 @@ local function talkingtime(text, sound, Apause, Bpause)
 end
 
 local done = true
-rem.OnClientEvent:Connect(function(whichnpc, dwait1, dwait2)
+rem.OnClientEvent:Connect(function(whichnpc, dwait1, dwait2) -- checks when the npc is done
 	local npcid = whichnpc
 	local num = 1
 	local pause1 = dwait1

@@ -30,7 +30,7 @@ local function startup()
 	
 end
 
-local function talk(emotion)
+local function talk(emotion) -- this was an attempt to make the omonoob's have an "animated" face, it didnt work out so well, so it was left unfinished
 	while faceloop == true do
 		wait(0.2)
 		head.TextureID = emotion[1]
@@ -40,7 +40,7 @@ local function talk(emotion)
 end
 
 
-hitbox.Touched:Connect(function(hit)
+hitbox.Touched:Connect(function(hit) -- detects if player is nearby one of the omonoob's
 	local player = game:GetService("Players"):GetPlayerFromCharacter(hit.Parent)
 	if db == false then
 		if player then
@@ -52,7 +52,7 @@ hitbox.Touched:Connect(function(hit)
 end)
 
 
-rem.OnServerEvent:Connect(function(int)
+rem.OnServerEvent:Connect(function(int) -- one of the attempts for animated faces.
 	faceloop = false
 	wait(0.5)
 	head.TextureID = normalface

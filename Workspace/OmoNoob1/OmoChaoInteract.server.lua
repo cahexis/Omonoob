@@ -43,7 +43,7 @@ local flying = true
 
 idletrack:Play()
 
-local function startup()
+local function startup() --when interacted with, it plays a little animation of it grabbing a cloud and beginning its flight.
 	
 	idletrack:Stop()
 	local cloudclone = rep.Cloud:Clone()
@@ -61,7 +61,7 @@ local function startup()
 	cloudclone.Wind:Play()
 end
 
-local function flyaround(plr, bool)
+local function flyaround(plr, bool) -- while in dialogue, it somewhat flies around the character, was an attempt to recreate the omochao's movement.
 		
 	local root = plr.HumanoidRootPart
 	--front = z5
@@ -77,14 +77,14 @@ local function flyaround(plr, bool)
 	end
 end
 
-local function goback()
+local function goback() -- goes back to its original starting place.
 	hum:MoveTo(Vector3.new(startposition.X, startposition.y+5,startposition.Z))
 	hum.MoveToFinished:Wait()
 	wait(0.5)
 end
 
 
-hitbox.Touched:Connect(function(hit)
+hitbox.Touched:Connect(function(hit) -- the interaction script! When a player walks in a certain radius, it activates the omonoob.
 	local player = game:GetService("Players"):GetPlayerFromCharacter(hit.Parent)
 	if db == false then
 		if player then
@@ -98,7 +98,7 @@ end)
 
 
 
-rem.OnServerEvent:Connect(function(plr, npcid)
+rem.OnServerEvent:Connect(function(plr, npcid) -- detects what dialogue the omonoob should use.
 	local bigid = npcid
 	print(bigid)
 	if whichnpc == bigid then
